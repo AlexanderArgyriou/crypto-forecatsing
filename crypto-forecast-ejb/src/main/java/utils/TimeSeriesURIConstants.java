@@ -1,4 +1,4 @@
-package apiaccess.utils;
+package utils;
 
 public enum TimeSeriesURIConstants {
     TIMESERIES_API_DOMAIN("api.timedoor.io"),

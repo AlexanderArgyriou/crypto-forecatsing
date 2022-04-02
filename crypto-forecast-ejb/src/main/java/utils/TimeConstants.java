@@ -1,4 +1,4 @@
-package apiaccess.utils;
+package utils;
 
 public enum TimeConstants {
     LAST_EIGHT_HOURS_VALUES_PER_MINUTE("480"),

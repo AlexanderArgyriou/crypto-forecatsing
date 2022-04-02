@@ -5,9 +5,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import json.deserializer.TimeSeriesDeserializer;
 import json.serializer.TimeSeriesSerializer;
 
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
+@Named("timeSeries")
 @JsonDeserialize(using = TimeSeriesDeserializer.class)
 @JsonSerialize(using = TimeSeriesSerializer.class)
 public class TimeSeries {

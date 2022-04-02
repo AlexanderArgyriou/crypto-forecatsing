@@ -1,4 +1,4 @@
-package apiaccess.utils;
+package utils;
 
 public enum ExchangeConstants {
     EURO("EUR"),
