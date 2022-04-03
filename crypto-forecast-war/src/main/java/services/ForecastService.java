@@ -1,16 +1,18 @@
 package services;
 
 import apiaccess.arimamodelrestcaller.ArimaAPIForecastAccessLocalIf;
+import interceptors.ProfileInterceptorClient;
+import rest.endpoints.Predict;
 
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
 
-@Stateless
-@Local
-public class ForecastService implements ForecastServiceLocalIf {
+@RequestScoped
+@Interceptors(ProfileInterceptorClient.class)
+public class ForecastService implements ForecastServiceIf {
     @Inject
     ArimaAPIForecastAccessLocalIf arimaAPIForecastAccess;
 
@@ -28,4 +30,20 @@ public class ForecastService implements ForecastServiceLocalIf {
     public String predictUSDTJson(Future<Response> res) {
         return arimaAPIForecastAccess.predictUSDT(res);
     }
+
+    @Override
+    public Predict predictBTCForecast(Future<Response> res) {
+        return null;
+    }
+
+    @Override
+    public Predict predictETHForecast(Future<Response> res) {
+        return null;
+    }
+
+    @Override
+    public Predict predictUSDTForecast(Future<Response> res) {
+        return null;
+    }
+
 }

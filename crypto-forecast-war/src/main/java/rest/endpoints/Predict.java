@@ -1,7 +1,7 @@
 package rest.endpoints;
 
-import services.CoinInfoServiceLocalIf;
-import services.ForecastServiceLocalIf;
+import services.CoinInfoServiceIf;
+import services.ForecastServiceIf;
 import utils.URIUtils;
 
 import javax.inject.Inject;
@@ -14,12 +14,12 @@ import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
 
 @Path("predict")
-public class Forecast {
+public class Predict {
     @Inject
-    ForecastServiceLocalIf forecastService;
+    ForecastServiceIf forecastService;
 
     @Inject
-    CoinInfoServiceLocalIf coinInfoService;
+    CoinInfoServiceIf coinInfoService;
 
     @Inject
     Client client;

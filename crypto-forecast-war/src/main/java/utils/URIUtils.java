@@ -1,7 +1,7 @@
 package utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import json.timeseries.TimeSeries;
+import json.timeseries.beans.TimeSeries;
 
 import org.apache.http.client.utils.URIBuilder;
 import javax.enterprise.context.ApplicationScoped;

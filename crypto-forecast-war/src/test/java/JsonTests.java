@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import json.timeseries.TimeSeries;
+import json.timeseries.beans.TimeSeries;
 
 import org.junit.Test;
 

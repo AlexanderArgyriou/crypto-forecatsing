@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import json.timeseries.TimeSeries;
 import json.timeseries.TimeSeriesComponent;
+import json.timeseries.beans.TimeSeries;
 
 import java.io.IOException;
 import java.math.BigDecimal;

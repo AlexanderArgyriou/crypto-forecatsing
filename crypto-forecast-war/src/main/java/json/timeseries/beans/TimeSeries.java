@@ -1,9 +1,10 @@
-package json.timeseries;
+package json.timeseries.beans;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import json.deserializer.TimeSeriesDeserializer;
 import json.serializer.TimeSeriesSerializer;
+import json.timeseries.TimeSeriesComponent;
 
 import javax.inject.Named;
 import java.util.ArrayList;

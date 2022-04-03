@@ -1,14 +1,18 @@
 package apiaccess.coinapirestcaller;
 
+import apiaccess.interceptors.ProfileInterceptorEJB;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 @Stateless
 @LocalBean
-public class CoinAPIAccess implements CoinAPIAccessIfLocal {
+@Interceptors(ProfileInterceptorEJB.class)
+public class CoinAPIAccess implements CoinAPIAccessIfLocal, CoinAPIAccessIfRemote {
     @Override
     public String getETHTimeSeries(Future<Response> res) {
         try {

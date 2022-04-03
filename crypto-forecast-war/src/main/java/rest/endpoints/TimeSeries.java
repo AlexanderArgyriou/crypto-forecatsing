@@ -1,6 +1,6 @@
 package rest.endpoints;
 
-import services.CoinInfoServiceLocalIf;
+import services.CoinInfoServiceIf;
 import utils.URIUtils;
 
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 @Path("timeseries")
 public class TimeSeries {
     @Inject
-    CoinInfoServiceLocalIf coinInfoService;
+    CoinInfoServiceIf coinInfoService;
 
     @Inject
     Client client;

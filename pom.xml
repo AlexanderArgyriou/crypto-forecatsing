@@ -18,6 +18,9 @@
         <maven.compiler.target>8</maven.compiler.target>
         <junit.version>4.11</junit.version>
         <javaee.version>7.0</javaee.version>
+        <jackson.version>2.13.2.1</jackson.version>
+        <apachehttp.version>4.5.13</apachehttp.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
@@ -31,17 +34,20 @@
             <artifactId>javaee-api</artifactId>
             <version>${javaee.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.2.1</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.13</version>
-            <scope>compile</scope>
+            <version>${apachehttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
     </dependencies>
 </project>

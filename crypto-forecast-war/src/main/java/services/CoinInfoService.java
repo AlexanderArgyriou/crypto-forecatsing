@@ -1,16 +1,17 @@
 package services;
 
 import apiaccess.coinapirestcaller.CoinAPIAccessIfLocal;
+import interceptors.ProfileInterceptorClient;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
 
-@Stateless
-@LocalBean
-public class CoinInfoService implements CoinInfoServiceLocalIf {
+@RequestScoped
+@Interceptors(ProfileInterceptorClient.class)
+public class CoinInfoService implements CoinInfoServiceIf {
     @Inject
     CoinAPIAccessIfLocal coinAPIAccess;
 
