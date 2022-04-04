@@ -5,6 +5,7 @@ import json.timeseries.beans.TimeSeries;
 
 import org.apache.http.client.utils.URIBuilder;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +14,9 @@ import java.util.concurrent.Future;
 
 @ApplicationScoped
 public class URIUtils {
+    @Inject
+    ObjectMapper mapper;
+
     public URIBuilder buildTimeSeriesGetURIBTC() {
         return new URIBuilder()
                 .setScheme(CoinURIConstants.HTTPS.getS())
@@ -59,7 +63,6 @@ public class URIUtils {
     }
 
     public String constructTimeSeriesJson(String json) {
-        ObjectMapper mapper = new ObjectMapper();
         try {
             TimeSeries t = mapper.readValue(json, TimeSeries.class);
             return mapper.writeValueAsString(t);
