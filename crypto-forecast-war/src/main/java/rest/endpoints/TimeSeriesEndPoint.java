@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
 
 @Path("timeseries")
-public class TimeSeries {
+public class TimeSeriesEndPoint {
     @Inject
     CoinInfoServiceIf coinInfoService;
 

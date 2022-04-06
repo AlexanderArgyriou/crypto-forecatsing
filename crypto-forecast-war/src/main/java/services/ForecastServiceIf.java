@@ -1,6 +1,6 @@
 package services;
 
-import rest.endpoints.Predict;
+import rest.endpoints.PredictEndPoint;
 
 import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
@@ -12,9 +12,9 @@ public interface ForecastServiceIf {
 
     String predictUSDTJson(Future<Response> res);
 
-    Predict predictBTCForecast(Future<Response> res);
+    PredictEndPoint predictBTCForecast(Future<Response> res);
 
-    Predict predictETHForecast(Future<Response> res);
+    PredictEndPoint predictETHForecast(Future<Response> res);
 
-    Predict predictUSDTForecast(Future<Response> res);
+    PredictEndPoint predictUSDTForecast(Future<Response> res);
 }

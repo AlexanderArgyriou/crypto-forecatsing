@@ -25,7 +25,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.BTC.getS())
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
-                        TimeConstants.LAST_EIGHT_HOURS_VALUES_PER_MINUTE.getS());
+                        TimeConstants.LAST_DAY_VALUES_PER_MINUTE.getS());
     }
 
     public URIBuilder buildTimeSeriesGetURIETH() {
@@ -36,7 +36,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.ETH.getS())
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
-                        TimeConstants.LAST_EIGHT_HOURS_VALUES_PER_MINUTE.getS());
+                        TimeConstants.LAST_DAY_VALUES_PER_MINUTE.getS());
     }
 
     public URIBuilder buildTimeSeriesGetURIUSDT() {
@@ -47,7 +47,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.USDT.getS())
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
-                        TimeConstants.LAST_EIGHT_HOURS_VALUES_PER_MINUTE.getS());
+                        TimeConstants.LAST_DAY_VALUES_PER_MINUTE.getS());
     }
 
     public AsyncInvoker getForecastAsyncInvoker(Client client) {

@@ -19,6 +19,9 @@ public class TimeSeriesSerializer extends JsonSerializer<TimeSeries> {
                           JsonGenerator jsonGenerator,
                           SerializerProvider serializerProvider) throws IOException {
         jsonGenerator.writeStartObject();
+        jsonGenerator.writeBooleanField(SerializeKeywords.STEPWISE.getS(), false);
+        jsonGenerator.writeBooleanField(SerializeKeywords.APPROX.getS(), false);
+        jsonGenerator.writeNumberField(SerializeKeywords.HORIZON.getS(), 60);
         jsonGenerator.writeArrayFieldStart(SerializeKeywords.TIME_SERIES_FIELD.getS());
         jsonGenerator.writeStartObject();
         jsonGenerator.writeObjectFieldStart(SerializeKeywords.DATA_FIELD.getS());
@@ -45,7 +48,10 @@ public class TimeSeriesSerializer extends JsonSerializer<TimeSeries> {
     private enum SerializeKeywords {
         TIME_SERIES_PATTERN("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"),
         TIME_SERIES_FIELD("time_series"),
-        DATA_FIELD("data");
+        DATA_FIELD("data"),
+        STEPWISE("stepwise"),
+        APPROX("approximation"),
+        HORIZON("horizon");
 
         String s;
 

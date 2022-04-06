@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;
 
 @Path("predict")
-public class Predict {
+public class PredictEndPoint {
     @Inject
     ForecastServiceIf forecastService;
 

@@ -2,7 +2,7 @@ package services;
 
 import apiaccess.arimamodelrestcaller.ArimaAPIForecastAccessLocalIf;
 import interceptors.ProfileInterceptorClient;
-import rest.endpoints.Predict;
+import rest.endpoints.PredictEndPoint;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -32,17 +32,17 @@ public class ForecastService implements ForecastServiceIf {
     }
 
     @Override
-    public Predict predictBTCForecast(Future<Response> res) {
+    public PredictEndPoint predictBTCForecast(Future<Response> res) {
         return null;
     }
 
     @Override
-    public Predict predictETHForecast(Future<Response> res) {
+    public PredictEndPoint predictETHForecast(Future<Response> res) {
         return null;
     }
 
     @Override
-    public Predict predictUSDTForecast(Future<Response> res) {
+    public PredictEndPoint predictUSDTForecast(Future<Response> res) {
         return null;
     }
 
