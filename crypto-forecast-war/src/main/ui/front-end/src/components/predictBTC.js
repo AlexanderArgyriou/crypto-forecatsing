@@ -7,16 +7,17 @@ import {
         CartesianGrid,
         Tooltip,
         Legend,
+        ResponsiveContainer
 } from 'recharts';
 
-const PredictBTC = (coin) => {
-        const numberOfPredictions = '5';
+const PredictBTC = (props) => {
+        const numberOfPredictions = '20';
         const numberOfMinutesInPastTimeSeries = '2000';
-        const apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
-        const apiUrlRealTimeValueForCoin = '/crypto-forecast-war-1/resources/timeseries/' + coin + '/1';
+        const apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
+        const apiUrlRealTimeValueForCoin = '/crypto-forecast-war-1/resources/timeseries/' + props.coin + '/1';
         const MINUTE_MS = 60000;
         const [data, setData] = useState([]);
-        const HOUR_MS = 3600000;
+        const refresh = parseInt(numberOfPredictions) * 60 * 1000 + 12000;
 
         useEffect(() => {
                 setTimeout(() => {
@@ -40,7 +41,7 @@ const PredictBTC = (coin) => {
                         apiFetch();
                         const interval = setInterval(() => {
                                 apiFetch();
-                        }, 720000);
+                        }, refresh);
                         return () => clearInterval(interval);
                 }, 0)
         }, [])
@@ -72,50 +73,50 @@ const PredictBTC = (coin) => {
         })
 
         return (
-                <div>
-                        <LineChart
-                                width={1300}
-                                height={300}
-                                data={data}
-                                margin={{
-                                        top: 5,
-                                        right: 30,
-                                        left: 20,
-                                        bottom: 5
-                                }}
-                        >
-                                <CartesianGrid strokeDasharray="5 5" />
-                                <XAxis dataKey="name" />
-                                <YAxis type="number" domain={['dataMin', 'dataMax']} />
-                                <Tooltip />
-                                <Legend />
-                                <Line
-                                        type="monotone"
-                                        dataKey="low"
-                                        stroke="#000000"
-                                // activeDot={{ r: 8 }}
-                                />
-                                <Line
-                                        type="monotone"
-                                        dataKey="mean"
-                                        stroke="#8884d8"
-                                        activeDot={{ r: 8 }}
-                                />
-                                <Line
-                                        type="monotone"
-                                        dataKey="high"
-                                        stroke="#ff0000"
-                                // activeDot={{ r: 8 }}
-                                />
-                                <Line
-                                        type="monotone"
-                                        dataKey="real"
-                                        stroke="#228B22"
-                                // activeDot={{ r: 8 }}
-                                />
-                                {/* <Line type="monotone" dataKey="pv" stroke="#82ca9d" /> */}
-                        </LineChart>
-                </div>
+                <LineChart
+                        // width={1300}
+                        // height={300}
+                        width={1300}
+                        height={300}
+                        data={data}
+                        margin={{
+                                top: 5,
+                                right: 30,
+                                left: 20,
+                                bottom: 5
+                        }}
+                >
+                        <CartesianGrid strokeDasharray="5 5" />
+                        <XAxis dataKey="name" />
+                        <YAxis type="number" domain={['dataMin', 'dataMax']} />
+                        <Tooltip />
+                        <Legend />
+                        <Line
+                                type="monotone"
+                                dataKey="low"
+                                stroke="#000000"
+                        // activeDot={{ r: 8 }}
+                        />
+                        <Line
+                                type="monotone"
+                                dataKey="mean"
+                                stroke="#8884d8"
+                                activeDot={{ r: 8 }}
+                        />
+                        <Line
+                                type="monotone"
+                                dataKey="high"
+                                stroke="#ff0000"
+                        // activeDot={{ r: 8 }}
+                        />
+                        <Line
+                                type="monotone"
+                                dataKey="real"
+                                stroke="#228B22"
+                        // activeDot={{ r: 8 }}
+                        />
+                        {/* <Line type="monotone" dataKey="pv" stroke="#82ca9d" /> */}
+                </LineChart>
         )
 };
 

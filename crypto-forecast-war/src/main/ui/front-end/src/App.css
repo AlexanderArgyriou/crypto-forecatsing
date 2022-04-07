@@ -1,6 +1,25 @@
-.App {
-    height: 500;
-
-    text-align: center;
-    text-align: center;
+.graph-container-btc {
+    background-color: #FBF8F1;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
 }
+
+.graph-container-eth {
+    background-color: #F7ECDE;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+
+.graph-container-usdt {
+    background-color: #FBF8F1;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
+}
+
