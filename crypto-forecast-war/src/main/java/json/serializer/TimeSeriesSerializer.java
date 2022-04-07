@@ -21,7 +21,7 @@ public class TimeSeriesSerializer extends JsonSerializer<TimeSeries> {
         jsonGenerator.writeStartObject();
         jsonGenerator.writeBooleanField(SerializeKeywords.STEPWISE.getS(), false);
         jsonGenerator.writeBooleanField(SerializeKeywords.APPROX.getS(), false);
-        jsonGenerator.writeNumberField(SerializeKeywords.HORIZON.getS(), 60);
+        jsonGenerator.writeNumberField(SerializeKeywords.HORIZON.getS(), timeSeries.getPredictionsNum());
         jsonGenerator.writeArrayFieldStart(SerializeKeywords.TIME_SERIES_FIELD.getS());
         jsonGenerator.writeStartObject();
         jsonGenerator.writeObjectFieldStart(SerializeKeywords.DATA_FIELD.getS());

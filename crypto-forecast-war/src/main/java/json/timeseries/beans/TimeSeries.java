@@ -15,6 +15,7 @@ import java.util.List;
 @JsonSerialize(using = TimeSeriesSerializer.class)
 public class TimeSeries {
     private final List<TimeSeriesComponent> timeSeriesList = new ArrayList<>();
+    int predictionsNum = 10;
 
     public List<TimeSeriesComponent> getTimeSeriesList() {
         return timeSeriesList;
@@ -22,5 +23,15 @@ public class TimeSeries {
 
     public void addValue(TimeSeriesComponent timeSeriesComponent) {
         timeSeriesList.add(timeSeriesComponent);
+    }
+
+    public int getPredictionsNum() {
+        return predictionsNum;
+    }
+
+    public void setPredictionsNum(int predictionsNum) {
+        if (predictionsNum > 10) {
+            this.predictionsNum = predictionsNum;
+        }
     }
 }

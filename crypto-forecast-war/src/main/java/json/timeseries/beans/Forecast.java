@@ -2,6 +2,7 @@ package json.timeseries.beans;
 
 import services.CoinInfoServiceIf;
 import services.ForecastServiceIf;
+import utils.TimeConstants;
 import utils.URIUtils;
 
 import javax.enterprise.context.RequestScoped;
@@ -31,7 +32,8 @@ public class Forecast {
         Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
                 .post(Entity.json(uriUtils.constructTimeSeriesJson(
                         coinInfoService.getBTCTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC().toString(), client)))));
+                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC(TimeConstants.LAST_EIGHT_HOURS_VALUES_PER_MINUTE.getS())
+                                        .toString(), client)), 10)));
         return forecastService.predictBTCJson(forecast);
     }
 }

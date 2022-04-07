@@ -17,7 +17,7 @@ public class URIUtils {
     @Inject
     ObjectMapper mapper;
 
-    public URIBuilder buildTimeSeriesGetURIBTC() {
+    public URIBuilder buildTimeSeriesGetURIBTC(String minutes) {
         return new URIBuilder()
                 .setScheme(CoinURIConstants.HTTPS.getS())
                 .setHost(CoinURIConstants.COIN_API_DOMAIN.getS())
@@ -25,10 +25,10 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.BTC.getS())
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
-                        TimeConstants.LAST_DAY_VALUES_PER_MINUTE.getS());
+                        minutes);
     }
 
-    public URIBuilder buildTimeSeriesGetURIETH() {
+    public URIBuilder buildTimeSeriesGetURIETH(String minutes) {
         return new URIBuilder()
                 .setScheme(CoinURIConstants.HTTPS.getS())
                 .setHost(CoinURIConstants.COIN_API_DOMAIN.getS())
@@ -36,10 +36,10 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.ETH.getS())
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
-                        TimeConstants.LAST_DAY_VALUES_PER_MINUTE.getS());
+                        minutes);
     }
 
-    public URIBuilder buildTimeSeriesGetURIUSDT() {
+    public URIBuilder buildTimeSeriesGetURIUSDT(String minutes) {
         return new URIBuilder()
                 .setScheme(CoinURIConstants.HTTPS.getS())
                 .setHost(CoinURIConstants.COIN_API_DOMAIN.getS())
@@ -47,7 +47,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.USDT.getS())
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
-                        TimeConstants.LAST_DAY_VALUES_PER_MINUTE.getS());
+                        minutes);
     }
 
     public AsyncInvoker getForecastAsyncInvoker(Client client) {
@@ -62,9 +62,10 @@ public class URIUtils {
                 .async();
     }
 
-    public String constructTimeSeriesJson(String json) {
+    public String constructTimeSeriesJson(String json, int numberOfPredictions) {
         try {
             TimeSeries t = mapper.readValue(json, TimeSeries.class);
+            t.setPredictionsNum(numberOfPredictions);
             return mapper.writeValueAsString(t);
         } catch (Exception e) {
             e.printStackTrace();

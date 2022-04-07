@@ -6,6 +6,7 @@ import utils.URIUtils;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
@@ -22,30 +23,30 @@ public class TimeSeriesEndPoint {
     @Inject
     URIUtils uriUtils;
 
-    @Path("btc")
+    @Path("btc/{time}")
     @GET
     @Produces("application/json")
-    public String getBTCTimeSeries() {
+    public String getBTCTimeSeries(@PathParam("time") String minutes) {
         Future<Response> btc =
-                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC().toString(), client);
+                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC(minutes).toString(), client);
         return coinInfoService.getBTCTimeSeriesJson(btc);
     }
 
-    @Path("eth")
+    @Path("eth/{time}")
     @GET
     @Produces("application/json")
-    public String geETHTimeSeries() {
+    public String geETHTimeSeries(@PathParam("time") String minutes) {
         Future<Response> eth =
-                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIETH().toString(), client);
+                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIETH(minutes).toString(), client);
         return coinInfoService.getETHTimeSeriesJson(eth);
     }
 
-    @Path("usdt")
+    @Path("usdt/{time}")
     @GET
     @Produces("application/json")
-    public String geUSDTTimeSeries() {
+    public String geUSDTTimeSeries(@PathParam("time") String minutes) {
         Future<Response> usdt =
-                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT().toString(), client);
+                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT(minutes).toString(), client);
         return coinInfoService.getUSDTTimeSeriesJson(usdt);
     }
 }

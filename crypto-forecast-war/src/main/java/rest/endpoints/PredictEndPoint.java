@@ -7,6 +7,7 @@ import utils.URIUtils;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
@@ -27,36 +28,39 @@ public class PredictEndPoint {
     @Inject
     URIUtils uriUtils;
 
-    @Path("btc")
+    @Path("btc/{time}/{predictions}")
     @GET
     @Produces("application/json")
-    public String predictBTC() {
+    public String predictBTC(@PathParam("time") String minutes,
+                             @PathParam("predictions") int predictions) {
         Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
                 .post(Entity.json(uriUtils.constructTimeSeriesJson(
                         coinInfoService.getBTCTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC().toString(), client)))));
+                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC(minutes).toString(), client)), predictions)));
         return forecastService.predictBTCJson(forecast);
     }
 
-    @Path("eth")
+    @Path("eth/{time}/{predictions}")
     @GET
     @Produces("application/json")
-    public String predictETH() {
+    public String predictETH(@PathParam("time") String minutes,
+                             @PathParam("predictions") int predictions) {
         Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
                 .post(Entity.json(uriUtils.constructTimeSeriesJson(
                         coinInfoService.getETHTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIETH().toString(), client)))));
+                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIETH(minutes).toString(), client)), predictions)));
         return forecastService.predictETHJson(forecast);
     }
 
-    @Path("usdt")
+    @Path("usdt/{time}/{predictions}")
     @GET
     @Produces("application/json")
-    public String predictUSDT() {
+    public String predictUSDT(@PathParam("time") String minutes,
+                              @PathParam("predictions") int predictions) {
         Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
                 .post(Entity.json(uriUtils.constructTimeSeriesJson(
                         coinInfoService.getUSDTTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT().toString(), client)))));
+                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT(minutes).toString(), client)), predictions)));
         return forecastService.predictUSDTJson(forecast);
     }
 }
