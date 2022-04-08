@@ -35,7 +35,7 @@ public class TimeSeriesEndPoint {
     @Path("eth/{time}")
     @GET
     @Produces("application/json")
-    public String geETHTimeSeries(@PathParam("time") String minutes) {
+    public String getETHTimeSeries(@PathParam("time") String minutes) {
         Future<Response> eth =
                 uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIETH(minutes).toString(), client);
         return coinInfoService.getETHTimeSeriesJson(eth);
@@ -44,9 +44,18 @@ public class TimeSeriesEndPoint {
     @Path("usdt/{time}")
     @GET
     @Produces("application/json")
-    public String geUSDTTimeSeries(@PathParam("time") String minutes) {
+    public String getUSDTTimeSeries(@PathParam("time") String minutes) {
         Future<Response> usdt =
                 uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT(minutes).toString(), client);
         return coinInfoService.getUSDTTimeSeriesJson(usdt);
+    }
+
+    @Path("sol/{time}")
+    @GET
+    @Produces("application/json")
+    public String getSOLTimeSeries(@PathParam("time") String minutes) {
+        Future<Response> sol =
+                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURISOL(minutes).toString(), client);
+        return coinInfoService.getUSDTTimeSeriesJson(sol);
     }
 }

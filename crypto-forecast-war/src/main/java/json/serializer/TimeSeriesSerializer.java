@@ -22,6 +22,13 @@ public class TimeSeriesSerializer extends JsonSerializer<TimeSeries> {
         jsonGenerator.writeBooleanField(SerializeKeywords.STEPWISE.getS(), false);
         jsonGenerator.writeBooleanField(SerializeKeywords.APPROX.getS(), false);
         jsonGenerator.writeNumberField(SerializeKeywords.HORIZON.getS(), timeSeries.getPredictionsNum());
+        jsonGenerator.writeNumberField("ci_level", 80);
+
+        jsonGenerator.writeObjectFieldStart("precision");
+        jsonGenerator.writeNumberField("digits", 4);
+        jsonGenerator.writeStringField("method", "significant");
+        jsonGenerator.writeEndObject();
+
         jsonGenerator.writeArrayFieldStart(SerializeKeywords.TIME_SERIES_FIELD.getS());
         jsonGenerator.writeStartObject();
         jsonGenerator.writeObjectFieldStart(SerializeKeywords.DATA_FIELD.getS());

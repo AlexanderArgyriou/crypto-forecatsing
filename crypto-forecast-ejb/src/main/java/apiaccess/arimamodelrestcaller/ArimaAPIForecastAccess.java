@@ -16,7 +16,7 @@ public class ArimaAPIForecastAccess implements ArimaAPIForecastAccessLocalIf, Ar
     @Override
     public String predictBTC(Future<Response> res) {
         try {
-            return res.get(15, TimeUnit.SECONDS)
+            return res.get(60, TimeUnit.SECONDS)
                     .readEntity(String.class);
         } catch (Exception e) {
             res.cancel(true);
@@ -27,7 +27,7 @@ public class ArimaAPIForecastAccess implements ArimaAPIForecastAccessLocalIf, Ar
     @Override
     public String predictETH(Future<Response> res) {
         try {
-            return res.get(15, TimeUnit.SECONDS)
+            return res.get(60, TimeUnit.SECONDS)
                     .readEntity(String.class);
         } catch (Exception e) {
             res.cancel(true);
@@ -38,7 +38,18 @@ public class ArimaAPIForecastAccess implements ArimaAPIForecastAccessLocalIf, Ar
     @Override
     public String predictUSDT(Future<Response> res) {
         try {
-            return res.get(15, TimeUnit.SECONDS)
+            return res.get(60, TimeUnit.SECONDS)
+                    .readEntity(String.class);
+        } catch (Exception e) {
+            res.cancel(true);
+            return e.getMessage();
+        }
+    }
+
+    @Override
+    public String predictSOL(Future<Response> res) {
+        try {
+            return res.get(60, TimeUnit.SECONDS)
                     .readEntity(String.class);
         } catch (Exception e) {
             res.cancel(true);

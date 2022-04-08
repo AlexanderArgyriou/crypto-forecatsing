@@ -23,3 +23,32 @@
     justify-content: center;
 }
 
+.nav-bar-div {
+    height: 3em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #E9DAC1;
+    text-align: center;
+}
+
+.inline-div {
+    margin-right: 5em;
+    display: inline;
+    text-align: center;
+}
+
+.bot-marg {
+    margin-bottom: 2em;
+}
+
+.border-div {
+    border-top: 5px dotted #E9DAC1;
+    border-bottom: 5px dotted #E9DAC1;
+    border-left: none;
+    border-right: none;
+    padding: 2em;
+}
+
+.block-disp {
+    display: block;
+}

@@ -12,9 +12,5 @@ public interface ForecastServiceIf {
 
     String predictUSDTJson(Future<Response> res);
 
-    PredictEndPoint predictBTCForecast(Future<Response> res);
-
-    PredictEndPoint predictETHForecast(Future<Response> res);
-
-    PredictEndPoint predictUSDTForecast(Future<Response> res);
+    String predictSOLJson(Future<Response> res);
 }

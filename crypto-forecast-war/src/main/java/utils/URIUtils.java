@@ -50,6 +50,17 @@ public class URIUtils {
                         minutes);
     }
 
+    public URIBuilder buildTimeSeriesGetURISOL(String minutes) {
+        return new URIBuilder()
+                .setScheme(CoinURIConstants.HTTPS.getS())
+                .setHost(CoinURIConstants.COIN_API_DOMAIN.getS())
+                .setPath(CoinURIConstants.COIN_API_PATH_HISTORICAL.getS())
+                .addParameter(CoinURIConstants.COIN_ARGUMENT.getS(), CoinConstants.SOL.getS())
+                .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
+                .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
+                        minutes);
+    }
+
     public AsyncInvoker getForecastAsyncInvoker(Client client) {
         return client
                 .target(new URIBuilder()

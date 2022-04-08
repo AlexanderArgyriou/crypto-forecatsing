@@ -9,4 +9,6 @@ public interface CoinInfoServiceIf {
     String getBTCTimeSeriesJson(Future<Response> res);
 
     String getUSDTTimeSeriesJson(Future<Response> res);
+
+    String getSOLTimeSeriesJson(Future<Response> res);
 }

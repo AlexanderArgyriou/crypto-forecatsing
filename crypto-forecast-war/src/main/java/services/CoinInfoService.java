@@ -26,4 +26,9 @@ public class CoinInfoService implements CoinInfoServiceIf {
     public String getUSDTTimeSeriesJson(Future<Response> res) {
         return coinAPIAccess.geUSDTTimeSeries(res);
     }
+
+    @Override
+    public String getSOLTimeSeriesJson(Future<Response> res) {
+        return coinAPIAccess.geSOLTimeSeries(res);
+    }
 }

@@ -9,4 +9,6 @@ public interface ArimaAPIForecastAccessIf {
     String predictETH(Future<Response> res);
 
     String predictUSDT(Future<Response> res);
+
+    String predictSOL(Future<Response> res);
 }

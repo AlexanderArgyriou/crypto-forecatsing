@@ -32,18 +32,7 @@ public class ForecastService implements ForecastServiceIf {
     }
 
     @Override
-    public PredictEndPoint predictBTCForecast(Future<Response> res) {
-        return null;
+    public String predictSOLJson(Future<Response> res) {
+        return arimaAPIForecastAccess.predictSOL(res);
     }
-
-    @Override
-    public PredictEndPoint predictETHForecast(Future<Response> res) {
-        return null;
-    }
-
-    @Override
-    public PredictEndPoint predictUSDTForecast(Future<Response> res) {
-        return null;
-    }
-
 }

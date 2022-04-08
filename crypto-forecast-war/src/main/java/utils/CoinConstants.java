@@ -3,7 +3,8 @@ package utils;
 public enum CoinConstants {
     BTC("BTC"),
     ETH("ETH"),
-    USDT("USDT");
+    USDT("USDT"),
+    SOL("SOL");
 
     String s;
 

@@ -11,14 +11,15 @@ import {
 } from 'recharts';
 
 const PredictBTC = (props) => {
-        const numberOfPredictions = '20';
+        const numberOfPredictions = '10';
         const numberOfMinutesInPastTimeSeries = '2000';
         const apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
         const apiUrlRealTimeValueForCoin = '/crypto-forecast-war-1/resources/timeseries/' + props.coin + '/1';
         const MINUTE_MS = 60000;
+        const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
         const [data, setData] = useState([]);
-        const refresh = parseInt(numberOfPredictions) * 60 * 1000 + 12000;
-
+        console.log(refresh);
+        
         useEffect(() => {
                 setTimeout(() => {
                         const apiFetch = () => {

@@ -9,4 +9,6 @@ public interface CoinApiAccessIf {
     String getETHTimeSeries(Future<Response> res);
 
     String geUSDTTimeSeries(Future<Response> res);
+
+    String geSOLTimeSeries(Future<Response> res);
 }

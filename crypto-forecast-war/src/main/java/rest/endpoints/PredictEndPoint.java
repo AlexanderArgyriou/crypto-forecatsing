@@ -63,4 +63,16 @@ public class PredictEndPoint {
                                 uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT(minutes).toString(), client)), predictions)));
         return forecastService.predictUSDTJson(forecast);
     }
+
+    @Path("sol/{time}/{predictions}")
+    @GET
+    @Produces("application/json")
+    public String predictSOL(@PathParam("time") String minutes,
+                              @PathParam("predictions") int predictions) {
+        Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
+                .post(Entity.json(uriUtils.constructTimeSeriesJson(
+                        coinInfoService.getSOLTimeSeriesJson(
+                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURISOL(minutes).toString(), client)), predictions)));
+        return forecastService.predictSOLJson(forecast);
+    }
 }
