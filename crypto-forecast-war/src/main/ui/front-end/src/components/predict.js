@@ -7,11 +7,10 @@ import {
         CartesianGrid,
         Tooltip,
         Legend,
-        ResponsiveContainer
 } from 'recharts';
 
-const PredictBTC = (props) => {
-        const numberOfPredictions = '10';
+const Predict = (props) => {
+        const numberOfPredictions = '60';
         const numberOfMinutesInPastTimeSeries = '2000';
         const apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
         const apiUrlRealTimeValueForCoin = '/crypto-forecast-war-1/resources/timeseries/' + props.coin + '/1';
@@ -19,7 +18,7 @@ const PredictBTC = (props) => {
         const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
         const [data, setData] = useState([]);
         console.log(refresh);
-        
+
         useEffect(() => {
                 setTimeout(() => {
                         const apiFetch = () => {
@@ -121,4 +120,4 @@ const PredictBTC = (props) => {
         )
 };
 
-export default PredictBTC;
+export default Predict;

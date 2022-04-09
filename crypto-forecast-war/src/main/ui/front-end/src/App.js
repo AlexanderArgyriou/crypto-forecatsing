@@ -1,4 +1,4 @@
-import PredictBTC from "./components/predictBTC";
+import Predict from "./components/predict";
 import './App.css';
 import LeftNav from "./components/leftNav";
 
@@ -14,7 +14,7 @@ const App = () => {
           <LeftNav name={require('./images/btc.png')} />
         </div>
         <div>
-          <PredictBTC coin="btc" />
+          <Predict coin="btc" />
         </div>
       </div>
 
@@ -23,7 +23,7 @@ const App = () => {
           <LeftNav name={require('./images/eth.png')} />
         </div>
         <div>
-          <PredictBTC coin="eth" />
+          <Predict coin="eth" />
         </div>
       </div>
 
@@ -32,7 +32,7 @@ const App = () => {
           <LeftNav name={require('./images/sol.png')} />
         </div>
         <div>
-          <PredictBTC coin="sol" />
+          <Predict coin="sol" />
         </div>
       </div>
     </div>

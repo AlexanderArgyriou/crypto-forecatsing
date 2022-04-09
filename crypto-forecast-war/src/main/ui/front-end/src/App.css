@@ -52,3 +52,8 @@
 .block-disp {
     display: block;
 }
+
+.images {
+    width: 60px;
+    height: 60px;
+}
