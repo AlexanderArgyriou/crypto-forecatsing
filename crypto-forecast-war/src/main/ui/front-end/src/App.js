@@ -1,39 +1,20 @@
 import Predict from "./components/predict";
 import './App.css';
-import LeftNav from "./components/leftNav";
 
 const App = () => {
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
   return (
     <div>
       <div className='nav-bar-div'>
-        <p>DSS TimeSeries Forecasting test nav</p>
+        <p>DSS TimeSeries Forecasting test nav HEADER</p>
       </div>
-
-      <div className='graph-container-btc'>
-        <div className='inline-div'>
-          <LeftNav name={require('./images/btc.png')} />
-        </div>
-        <div>
-          <Predict coin="btc" />
-        </div>
-      </div>
-
-      <div className='graph-container-btc'>
-        <div className='inline-div'>
-          <LeftNav name={require('./images/eth.png')} />
-        </div>
-        <div>
-          <Predict coin="eth" />
-        </div>
-      </div>
-
-      <div className='graph-container-btc'>
-        <div className='inline-div'>
-          <LeftNav name={require('./images/sol.png')} />
-        </div>
-        <div>
-          <Predict coin="sol" />
-        </div>
+      <Predict coin="btc" name={require('./images/btc.png')} />
+      <Predict coin="eth" name={require('./images/eth.png')} />
+      <Predict coin="sol" name={require('./images/sol.png')} />
+      <hr />
+      <div className="footer-div">
+        <p>DSS TimeSeries Forecasting test nav FOOTER</p>
       </div>
     </div>
   )
