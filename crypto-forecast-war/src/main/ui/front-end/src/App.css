@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 .graph-container {
     background-color: #FBF8F1;
     padding-top: 2em;
@@ -75,6 +77,8 @@ hr {
     margin-right: auto;
     margin-top: 0;
     margin-bottom: 0;
+    opacity: 1;
+    background-color: #FBF8F1;
 }
 
 .main-container {
@@ -84,9 +88,10 @@ hr {
 
 body {
     background-color: #FBF8F1;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.btn {
+.btn2 {
     background: #FBF8F1;
     background-image: -webkit-linear-gradient(top, #FBF8F1, #E9DAC1);
     background-image: -moz-linear-gradient(top, #FBF8F1, #E9DAC1);
@@ -103,7 +108,7 @@ body {
     text-decoration: none;
   }
   
-  .btn:hover {
+  .btn2:hover {
     background: #E9DAC1;
     background-image: -webkit-linear-gradient(top, #E9DAC1, #FBF8F1);
     background-image: -moz-linear-gradient(top, #E9DAC1, #FBF8F1);
@@ -112,3 +117,7 @@ body {
     background-image: linear-gradient(to bottom, #E9DAC1, #FBF8F1);
     text-decoration: none;
   }
+
+  *, *::before, *::after {
+    box-sizing: content-box;
+}

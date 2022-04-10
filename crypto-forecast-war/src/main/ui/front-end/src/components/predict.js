@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "bootstrap/dist/css/bootstrap.css";
 
 import {
         LineChart,
@@ -128,10 +129,10 @@ const Predict = (props) => {
                                                         </select>
                                                 </div>
                                                 <div>
-                                                        <button className='btn' onClick={start}>
+                                                        <button className='btn2' onClick={start}>
                                                                 Run/Rerun
                                                         </button>
-                                                        <button className="button-stop btn" onClick={stop}>
+                                                        <button className="button-stop btn2" onClick={stop}>
                                                                 Stop
                                                         </button>
                                                 </div>
