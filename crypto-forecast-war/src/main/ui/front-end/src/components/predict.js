@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
+import '../App.css';
 
 import {
         LineChart,
@@ -13,14 +14,32 @@ import {
 
 
 const Predict = (props) => {
-        const numberOfPredictions = '1';
-        const numberOfMinutesInPastTimeSeries = '100';
-        const apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
+        let numberOfPredictions = '10';
+        let numberOfMinutesInPastTimeSeries = '100';
+        let apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
         const apiUrlRealTimeValueForCoin = '/crypto-forecast-war-1/resources/timeseries/' + props.coin + '/1';
         const MINUTE_MS = 60000;
         const [data, setData] = useState([]);
         const [fetchPredictionInterval, setFetchPredictionInterval] = useState(null);
         const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
+
+        function changeTimeSeries(event) {
+                if (!isNaN(event.target.value)) {
+                        numberOfMinutesInPastTimeSeries = event.target.value;
+                        apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
+                        console.log(numberOfMinutesInPastTimeSeries);
+                        console.log(apiUrlPredict);
+                }
+        }
+
+        function changePredictions(event) {
+                if (!isNaN(event.target.value)) {
+                        numberOfPredictions = event.target.value;
+                        apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
+                        console.log(numberOfPredictions);
+                        console.log(apiUrlPredict);
+                }
+        }
 
         const stop = () => {
                 if (fetchPredictionInterval != null) {
@@ -30,10 +49,8 @@ const Predict = (props) => {
         }
 
         const start = () => {
-                console.log("Calling Prediction API");
-                if (fetchPredictionInterval != null) {
-                        clearInterval(fetchPredictionInterval);
-                }
+                console.log("Calling Prediction API " + apiUrlPredict);
+                stop();
                 fetch(apiUrlPredict).then((response) => {
                         response.json().then((json) => {
                                 let dataTemp = [];
@@ -53,7 +70,7 @@ const Predict = (props) => {
 
         const apiFetch = () => {
                 setFetchPredictionInterval(setInterval(() => {
-                        console.log("Calling Prediction API");
+                        console.log("Calling Prediction API " + apiUrlPredict);
                         fetch(apiUrlPredict).then((response) => {
                                 response.json().then((json) => {
                                         let dataTemp = [];
@@ -113,16 +130,20 @@ const Predict = (props) => {
                                                         <img className="bot-marg images" src={props.name} alt="bitcoin-img" />
                                                 </div>
                                                 <div>
-                                                        <select className="bot-marg form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                                                        <select className="bot-marg form-select form-select-sm mb-3" aria-label=".form-select-sm example"
+                                                                onChange={changeTimeSeries}>
                                                                 <option selected="">past timeseries/minutes</option>
+                                                                <option>100</option>
                                                                 <option>500</option>
                                                                 <option>1000</option>
                                                                 <option>2000</option>
                                                         </select>
                                                 </div>
                                                 <div>
-                                                        <select className="bot-marg form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                                                        <select className="bot-marg form-select form-select-sm mb-3" aria-label=".form-select-sm example"
+                                                                onChange={changePredictions}>
                                                                 <option selected="">number of predictions/minutes</option>
+                                                                <option>10</option>
                                                                 <option>30</option>
                                                                 <option>60</option>
                                                                 <option>90</option>
@@ -183,6 +204,7 @@ const Predict = (props) => {
                                                 />
                                                 {/* <Line type="monotone" dataKey="pv" stroke="#82ca9d" /> */}
                                         </LineChart>
+                                        <p className='info-div'><b>Y [value : euro] / X [time : minutes]</b></p>
                                 </div>
                         </div >
                 </div>

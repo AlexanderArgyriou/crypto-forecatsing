@@ -26,7 +26,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
                         minutes)
-                .addParameter("api_key", "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
+                .addParameter(TimeSeriesURIConstants.API_KEY.getS(), "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
     }
 
     public URIBuilder buildTimeSeriesGetURIETH(String minutes) {
@@ -38,7 +38,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
                         minutes)
-                .addParameter("api_key", "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
+                .addParameter(TimeSeriesURIConstants.API_KEY.getS(), "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
     }
 
     public URIBuilder buildTimeSeriesGetURIUSDT(String minutes) {
@@ -50,7 +50,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
                         minutes)
-                .addParameter("api_key", "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
+                .addParameter(TimeSeriesURIConstants.API_KEY.getS(), "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
     }
 
     public URIBuilder buildTimeSeriesGetURISOL(String minutes) {
@@ -62,7 +62,7 @@ public class URIUtils {
                 .addParameter(CoinURIConstants.EXCHANGE_ARGUMENT.getS(), ExchangeConstants.EURO.getS())
                 .addParameter(CoinURIConstants.MINUTES_BEFORE_NOW.getS(),
                         minutes)
-                .addParameter("api_key", "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
+                .addParameter(TimeSeriesURIConstants.API_KEY.getS(), "a28fafbfb7ab8e5ab7d2b684aabfeb0ec97decf789529ac4130d8bfd181fb000");
     }
 
     public AsyncInvoker getForecastAsyncInvoker(Client client) {

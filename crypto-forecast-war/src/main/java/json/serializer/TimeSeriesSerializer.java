@@ -22,11 +22,11 @@ public class TimeSeriesSerializer extends JsonSerializer<TimeSeries> {
         jsonGenerator.writeBooleanField(SerializeKeywords.STEPWISE.getS(), false);
         jsonGenerator.writeBooleanField(SerializeKeywords.APPROX.getS(), false);
         jsonGenerator.writeNumberField(SerializeKeywords.HORIZON.getS(), timeSeries.getPredictionsNum());
-        jsonGenerator.writeNumberField("ci_level", 80);
+        jsonGenerator.writeNumberField(SerializeKeywords.CI_LEVEL.getS(), 80);
 
-        jsonGenerator.writeObjectFieldStart("precision");
-        jsonGenerator.writeNumberField("digits", 4);
-        jsonGenerator.writeStringField("method", "significant");
+        jsonGenerator.writeObjectFieldStart(SerializeKeywords.PRECISION.getS());
+        jsonGenerator.writeNumberField(SerializeKeywords.DIGITS.getS(), 4);
+        jsonGenerator.writeStringField(SerializeKeywords.METHOD.getS(), SerializeKeywords.SIGNIFICANT.getS());
         jsonGenerator.writeEndObject();
 
         jsonGenerator.writeArrayFieldStart(SerializeKeywords.TIME_SERIES_FIELD.getS());
@@ -58,7 +58,12 @@ public class TimeSeriesSerializer extends JsonSerializer<TimeSeries> {
         DATA_FIELD("data"),
         STEPWISE("stepwise"),
         APPROX("approximation"),
-        HORIZON("horizon");
+        HORIZON("horizon"),
+        CI_LEVEL("ci_level"),
+        PRECISION("precision"),
+        DIGITS("digits"),
+        METHOD("method"),
+        SIGNIFICANT("significant");
 
         String s;
 

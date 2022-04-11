@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
 .graph-container {
     background-color: #FBF8F1;
@@ -18,12 +19,14 @@
 }
 
 .footer-div {
-    height: 3em;
     padding-top: 2em;
     padding-bottom: 2em;
     background-color: #E9DAC1;
     text-align: center;
     margin-top: 2em;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 
 .inline-div {
@@ -89,6 +92,9 @@ hr {
 body {
     background-color: #FBF8F1;
     font-family: 'Ubuntu', sans-serif;
+    height: 100vh;
+    margin: 0; 
+    padding: 0;
 }
 
 .btn2 {
@@ -120,4 +126,41 @@ body {
 
   *, *::before, *::after {
     box-sizing: content-box;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+.info-div {
+    margin-left: 3rem;
+}
+
+.img-header-left {
+    position: relative;
+    right: 13%;
+    bottom: 0%;
+}
+
+.img-header-right {
+    position: relative;
+    left: 13%;
+    bottom: 0%;
+}
+
+rel-div {
+    position: relative;
+}
+
+.title-header{
+    font-size: 3rem;   
+    display: inline-block;
+    font-family: 'Delius', cursive;
+    color: gray;
 }
