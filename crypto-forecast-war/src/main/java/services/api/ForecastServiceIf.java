@@ -1,6 +1,4 @@
-package services;
-
-import rest.endpoints.PredictEndPoint;
+package services.api;
 
 import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;

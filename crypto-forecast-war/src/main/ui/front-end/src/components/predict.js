@@ -28,10 +28,9 @@ const Predict = (props) => {
 
         const saveDataInDB = () => {
                 fetch(saveURL, {
-                        method: 'POST',
+                        method: 'PUT',
                         headers: {
-                                'Content-Type': 'application/json',
-                                'Accept': '*/*'
+                                'content-type': 'application/json',
                         },
                         body: JSON.stringify(data)
                 })
@@ -81,6 +80,9 @@ const Predict = (props) => {
 
         const start = () => {
                 console.log("Calling Prediction API " + apiUrlPredict);
+                if (data.length > 0) {
+                        saveDataInDB();
+                }
                 stop();
                 fetch(apiUrlPredict).then((response) => {
                         response.json().then((json) => {
@@ -104,9 +106,6 @@ const Predict = (props) => {
                         console.log("Calling Prediction API " + apiUrlPredict);
                         fetch(apiUrlPredict).then((response) => {
                                 response.json().then((json) => {
-                                        if (data.length > 0) {
-                                                saveDataInDB();
-                                        }
                                         let dataTemp = [];
                                         let futureMin = 1;
                                         json.result.data.forecast.forEach((element) => {

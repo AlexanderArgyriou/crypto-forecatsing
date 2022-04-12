@@ -1,8 +1,7 @@
-package services;
+package services.api;
 
 import apiaccess.arimamodelrestcaller.ArimaAPIForecastAccessLocalIf;
 import interceptors.ProfileInterceptorClient;
-import rest.endpoints.PredictEndPoint;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

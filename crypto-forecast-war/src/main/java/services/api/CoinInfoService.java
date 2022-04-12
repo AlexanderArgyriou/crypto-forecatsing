@@ -1,4 +1,4 @@
-package services;
+package services.api;
 
 import apiaccess.coinapirestcaller.CoinAPIAccessIfLocal;
 import interceptors.ProfileInterceptorClient;

@@ -1,4 +1,4 @@
-package services;
+package services.api;
 
 import javax.ws.rs.core.Response;
 import java.util.concurrent.Future;

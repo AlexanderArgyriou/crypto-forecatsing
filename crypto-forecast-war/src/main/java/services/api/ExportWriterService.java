@@ -1,4 +1,4 @@
-package services;
+package services.api;
 
 import apiaccess.exporter.ExportWriterIf;
 import interceptors.ProfileInterceptorClient;
@@ -6,7 +6,6 @@ import interceptors.ProfileInterceptorClient;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.Response;
 

@@ -1,7 +1,7 @@
 package rest.endpoints;
 
-import services.CoinInfoServiceIf;
-import services.ForecastServiceIf;
+import services.api.CoinInfoServiceIf;
+import services.api.ForecastServiceIf;
 import utils.URIUtils;
 
 import javax.inject.Inject;

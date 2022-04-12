@@ -1,7 +1,7 @@
 package json.timeseries.beans;
 
-import services.CoinInfoServiceIf;
-import services.ForecastServiceIf;
+import services.api.CoinInfoServiceIf;
+import services.api.ForecastServiceIf;
 import utils.TimeConstants;
 import utils.URIUtils;
 
