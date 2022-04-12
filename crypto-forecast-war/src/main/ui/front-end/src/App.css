@@ -20,13 +20,14 @@
 
 .footer-div {
     padding-top: 2em;
-    padding-bottom: 2em;
+    padding-bottom: 0.5em;
     background-color: #E9DAC1;
     text-align: center;
     margin-top: 2em;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
+    /* position: sticky;
+    bottom: 0; */
+    /* width: 100%; */
+    position: relative;
 }
 
 .inline-div {
@@ -92,7 +93,6 @@ hr {
 body {
     background-color: #FBF8F1;
     font-family: 'Ubuntu', sans-serif;
-    height: 100vh;
     margin: 0; 
     padding: 0;
 }
@@ -112,6 +112,8 @@ body {
     font-size: 13px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    font-family: 'Delius', cursive;
+    color: gray;
   }
   
   .btn2:hover {
@@ -131,27 +133,26 @@ body {
 .container-fluid {
     padding-left: 0;
     padding-right: 0;
-    height: 100%;
-}
-
-#root {
-    height: 100%;
 }
 
 .info-div {
     margin-left: 3rem;
+    font-family: 'Delius', cursive;
+    color: gray;
 }
 
 .img-header-left {
     position: relative;
-    right: 13%;
+    right: 3%;
     bottom: 0%;
+    margin-left: 10px;
 }
 
 .img-header-right {
     position: relative;
-    left: 13%;
+    left: 3%;
     bottom: 0%;
+    margin-right: 10px;
 }
 
 rel-div {
@@ -162,5 +163,32 @@ rel-div {
     font-size: 3rem;   
     display: inline-block;
     font-family: 'Delius', cursive;
+    color: gray;
+}
+
+.small-p {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    position: relative;
+    font-family: 'Delius', cursive;
+    color: gray;
+}
+
+.footer-img-left {
+    position: absolute;
+    left: 35%;
+    bottom: 0%;
+}
+
+.footer-img-right {
+    position: absolute;
+    right: 35%;
+    top: 0%;
+}
+
+select {
+        font-family: 'Delius', cursive;
     color: gray;
 }
