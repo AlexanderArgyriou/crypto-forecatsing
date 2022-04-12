@@ -17,11 +17,42 @@ const Predict = (props) => {
         let numberOfPredictions = '10';
         let numberOfMinutesInPastTimeSeries = '100';
         let apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
+        const exportURL = '/crypto-forecast-war-1/resources/export';
+        const saveURL = '/crypto-forecast-war-1/resources/save';
+        const fileName = 'export';
         const apiUrlRealTimeValueForCoin = '/crypto-forecast-war-1/resources/timeseries/' + props.coin + '/1';
         const MINUTE_MS = 60000;
         const [data, setData] = useState([]);
         const [fetchPredictionInterval, setFetchPredictionInterval] = useState(null);
         const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
+
+        const saveDataInDB = () => {
+                fetch(saveURL, {
+                        method: 'POST',
+                        headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': '*/*'
+                        },
+                        body: JSON.stringify(data)
+                })
+        }
+
+        const exportData = () => {
+                fetch(exportURL, {
+                        method: 'POST',
+                        headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': '*/*'
+                        },
+                        body: JSON.stringify(data)
+                }).then((response) => (response.blob()))
+                        .then((blob) => {
+                                var a = document.createElement("a");
+                                a.href = URL.createObjectURL(blob);
+                                a.setAttribute("download", fileName);
+                                a.click();
+                        })
+        }
 
         function changeTimeSeries(event) {
                 if (!isNaN(event.target.value)) {
@@ -73,6 +104,9 @@ const Predict = (props) => {
                         console.log("Calling Prediction API " + apiUrlPredict);
                         fetch(apiUrlPredict).then((response) => {
                                 response.json().then((json) => {
+                                        if (data.length > 0) {
+                                                saveDataInDB();
+                                        }
                                         let dataTemp = [];
                                         let futureMin = 1;
                                         json.result.data.forecast.forEach((element) => {
@@ -153,8 +187,11 @@ const Predict = (props) => {
                                                         <button className='btn2' onClick={start}>
                                                                 Run/Rerun
                                                         </button>
-                                                        <button className="button-stop btn2" onClick={stop}>
+                                                        <button className='button-left-marg btn2' onClick={stop}>
                                                                 Stop
+                                                        </button>
+                                                        <button className='button-left-marg btn2' onClick={exportData}>
+                                                                Export
                                                         </button>
                                                 </div>
                                         </div>

@@ -21,6 +21,9 @@
         <jackson.version>2.13.2.1</jackson.version>
         <apachehttp.version>4.5.13</apachehttp.version>
         <log4j.version>1.2.17</log4j.version>
+        <pssql.version>42.3.3</pssql.version>
+        <hibernate.version>5.5.6</hibernate.version>
+        <persistence.version>2.2</persistence.version>
     </properties>
 
     <dependencies>
@@ -48,6 +51,21 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${pssql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>${persistence.version}</version>
         </dependency>
     </dependencies>
 </project>
