@@ -24,7 +24,7 @@ const Predict = (props) => {
         const MINUTE_MS = 60000;
         const [data, setData] = useState([]);
         const [fetchPredictionInterval, setFetchPredictionInterval] = useState(null);
-        const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
+        let refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
 
         const saveDataInDB = (elm) => {
                 // console.log(data);
@@ -75,9 +75,11 @@ const Predict = (props) => {
         function changePredictions(event) {
                 if (!isNaN(event.target.value)) {
                         numberOfPredictions = event.target.value;
+                        refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
                         apiUrlPredict = '/crypto-forecast-war-1/resources/predict/' + props.coin + '/' + numberOfMinutesInPastTimeSeries + '/' + numberOfPredictions;
                         console.log(numberOfPredictions);
                         console.log(apiUrlPredict);
+                        console.log(refresh);
                 }
         }
 
