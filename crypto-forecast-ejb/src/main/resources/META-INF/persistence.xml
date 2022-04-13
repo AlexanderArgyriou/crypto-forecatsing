@@ -15,6 +15,7 @@
 <!--            <property name="javax.persistence.jdbc.user" value="postgres"/> &lt;!&ndash; DB User &ndash;&gt;-->
 <!--            <property name="javax.persistence.jdbc.password" value="postgres"/> &lt;!&ndash; DB Password &ndash;&gt;-->
 <!--            <property name="hibernate.hbm2ddl.auto" value="create-drop"/> &lt;!&ndash; create / create-drop / update &ndash;&gt;-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/> <!-- Show SQL in console -->
             <property name="hibernate.format_sql" value="true"/> <!-- Show SQL formatted -->
             <!--            <property name="hibernate.hibernate.hbm2ddl.import_files" value="import.sql"/>-->

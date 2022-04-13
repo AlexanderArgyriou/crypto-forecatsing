@@ -93,7 +93,7 @@ const Predict = (props) => {
                                         let plus1Min = new Date(today);
                                         plus1Min.setMinutes(today.getMinutes() + futureMin++);
                                         let time = plus1Min.getHours() + ':' + plus1Min.getMinutes();
-                                        dataTemp.push({ name: time, low: element.lower, high: element.upper, mean: element.mean, real: null });
+                                        dataTemp.push({ name: time, low: element.lower, high: element.upper, mean: element.mean, real: null, realDate: plus1Min });
                                 })
                                 setData(dataTemp);
                         })
@@ -113,7 +113,7 @@ const Predict = (props) => {
                                                 let plus1Min = new Date(today);
                                                 plus1Min.setMinutes(today.getMinutes() + futureMin++);
                                                 let time = plus1Min.getHours() + ':' + plus1Min.getMinutes();
-                                                dataTemp.push({ name: time, low: element.lower, high: element.upper, mean: element.mean, real: null });
+                                                dataTemp.push({ name: time, low: element.lower, high: element.upper, mean: element.mean, real: null, realDate: plus1Min });
                                         })
                                         setData(dataTemp);
                                 })

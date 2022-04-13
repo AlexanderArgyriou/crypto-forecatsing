@@ -12,7 +12,7 @@ public class ForecastDB {
     ForecastDBServiceIf forecastDBService;
 
     @PUT
-    public void addForecast(String json) {
-        forecastDBService.addForecast( json );
+    public void addForecasts(String json) {
+        forecastDBService.addForecasts( json );
     }
 }

@@ -29,6 +29,14 @@ public class Forecast {
         this.date = date;
     }
 
+    public Forecast(BigDecimal low, BigDecimal high, BigDecimal mean, BigDecimal real, LocalDateTime date) {
+        this.low = low;
+        this.high = high;
+        this.mean = mean;
+        this.real = real;
+        this.date = date;
+    }
+
     public Long getId() {
         return id;
     }
