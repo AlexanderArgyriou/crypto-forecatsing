@@ -26,17 +26,24 @@ const Predict = (props) => {
         const [fetchPredictionInterval, setFetchPredictionInterval] = useState(null);
         const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
 
-        const saveDataInDB = () => {
-                let tempData = [];
-                tempData.push({"coin": props.coin});
-                tempData.push(data);
-                fetch(saveURL, {
-                        method: 'PUT',
-                        headers: {
-                                'content-type': 'application/json',
-                        },
-                        body: JSON.stringify(tempData)
-                })
+        const saveDataInDB = (elm) => {
+                // console.log(data);
+                if (data.length > 0) {
+                        console.log("Saving data in DB");
+                        let tempData = [];
+                        tempData.push({ "coin": props.coin });
+                        let elmArr = [];
+                        elmArr.push(elm);
+                        tempData.push(elmArr);
+                        tempData.push();
+                        fetch(saveURL, {
+                                method: 'PUT',
+                                headers: {
+                                        'content-type': 'application/json',
+                                },
+                                body: JSON.stringify(tempData)
+                        })
+                }
         }
 
         const exportData = () => {
@@ -83,9 +90,7 @@ const Predict = (props) => {
 
         const start = () => {
                 console.log("Calling Prediction API " + apiUrlPredict);
-                if (data.length > 0) {
-                        saveDataInDB();
-                }
+                // saveDataInDB();
                 stop();
                 fetch(apiUrlPredict).then((response) => {
                         response.json().then((json) => {
@@ -141,6 +146,7 @@ const Predict = (props) => {
                                                 let tempArray = [];
                                                 tempArray.push(...data);
                                                 setData(tempArray);
+                                                saveDataInDB(element);
                                                 break;
                                         }
                                 }
