@@ -10,25 +10,28 @@ public class ForecastDTO {
     private BigDecimal mean;
     private BigDecimal real;
     private LocalDateTime date;
+    private String coin;
 
     public ForecastDTO() {
     }
 
-    public ForecastDTO(Long id, BigDecimal low, BigDecimal high, BigDecimal mean, BigDecimal real, LocalDateTime date) {
+    public ForecastDTO(Long id, BigDecimal low, BigDecimal high, BigDecimal mean, BigDecimal real, LocalDateTime date, String coin) {
         this.id = id;
         this.low = low;
         this.high = high;
         this.mean = mean;
         this.real = real;
         this.date = date;
+        this.coin = coin;
     }
 
-    public ForecastDTO(BigDecimal low, BigDecimal high, BigDecimal mean, BigDecimal real, LocalDateTime date) {
+    public ForecastDTO(BigDecimal low, BigDecimal high, BigDecimal mean, BigDecimal real, LocalDateTime date, String coin) {
         this.low = low;
         this.high = high;
         this.mean = mean;
         this.real = real;
         this.date = date;
+        this.coin = coin;
     }
 
     public Long getId() {
@@ -77,5 +80,13 @@ public class ForecastDTO {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public String getCoin() {
+        return coin;
+    }
+
+    public void setCoin(String coin) {
+        this.coin = coin;
     }
 }

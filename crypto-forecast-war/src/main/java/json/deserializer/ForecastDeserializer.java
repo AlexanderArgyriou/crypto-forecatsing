@@ -18,7 +18,10 @@ public class ForecastDeserializer extends JsonDeserializer<ForecastDTOCollection
                                              DeserializationContext deserializationContext)
             throws IOException {
         JsonNode node = jsonParser.getCodec().readTree( jsonParser );
-        Iterator<JsonNode> i = node.elements();
+        Iterator<JsonNode> coins = node.elements();
+        JsonNode coinNode = coins.next();
+        String coin = coinNode.get(DeserializeKeywords.COIN.getS()).asText();
+        Iterator<JsonNode> i = coins.next().elements();
         ForecastDTOCollection forecasts = new ForecastDTOCollection();
         while ( i.hasNext() ) {
             JsonNode n = i.next();
@@ -28,7 +31,7 @@ public class ForecastDeserializer extends JsonDeserializer<ForecastDTOCollection
             BigDecimal real = n.get( DeserializeKeywords.REAL.getS() ).decimalValue();
             String realDate = n.get( DeserializeKeywords.REAL_DATE.getS() ).asText();
             if ( real != null && !"0".equals(real.toString()) ) {
-                forecasts.addForecastDTO( new ForecastDTO( low, high, mean, real, LocalDateTime.parse( realDate.substring( 0, realDate.length() - 1 ) ) ) );
+                forecasts.addForecastDTO( new ForecastDTO( low, high, mean, real, LocalDateTime.parse( realDate.substring( 0, realDate.length() - 1 ) ) , coin ));
             }
         }
         return forecasts;
@@ -40,7 +43,8 @@ public class ForecastDeserializer extends JsonDeserializer<ForecastDTOCollection
         MEAN( "mean" ),
         REAL( "real" ),
         REAL_DATE( "realDate" ),
-        TIME( "name" );
+        TIME( "name" ),
+        COIN("coin");
 
         String s;
 

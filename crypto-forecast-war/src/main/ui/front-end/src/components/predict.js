@@ -27,12 +27,15 @@ const Predict = (props) => {
         const refresh = parseInt(numberOfPredictions) * MINUTE_MS + (2 * MINUTE_MS);
 
         const saveDataInDB = () => {
+                let tempData = [];
+                tempData.push({"coin": props.coin});
+                tempData.push(data);
                 fetch(saveURL, {
                         method: 'PUT',
                         headers: {
                                 'content-type': 'application/json',
                         },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(tempData)
                 })
         }
 
