@@ -17,6 +17,6 @@ public class ExportWriterService implements ExportWriterServiceIf {
 
     @Override
     public Response exportFile(HttpServletResponse response, String json) {
-        return exportWriter.getFile(response, json);
+        return exportWriter.getFile( response, json );
     }
 }

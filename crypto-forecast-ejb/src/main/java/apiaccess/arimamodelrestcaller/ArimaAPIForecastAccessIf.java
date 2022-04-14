@@ -1,14 +1,8 @@
 package apiaccess.arimamodelrestcaller;
 
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
+import javax.ws.rs.client.AsyncInvoker;
+import javax.ws.rs.client.Entity;
 
 public interface ArimaAPIForecastAccessIf {
-    String predictBTC(Future<Response> res);
-
-    String predictETH(Future<Response> res);
-
-    String predictUSDT(Future<Response> res);
-
-    String predictSOL(Future<Response> res);
+    String predict(AsyncInvoker asyncInvoker, Entity entity);
 }

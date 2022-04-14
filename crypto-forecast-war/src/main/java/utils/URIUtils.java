@@ -9,8 +9,6 @@ import javax.inject.Inject;
 import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
 
 @ApplicationScoped
 public class URIUtils {
@@ -86,13 +84,5 @@ public class URIUtils {
             e.printStackTrace();
             return "{}";
         }
-    }
-
-    public Future<Response> getFutureResponse(String uri, Client client) {
-        return client
-                .target( uri )
-                .request( MediaType.APPLICATION_JSON )
-                .async()
-                .get();
     }
 }

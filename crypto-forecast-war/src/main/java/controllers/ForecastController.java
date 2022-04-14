@@ -15,7 +15,7 @@ public class ForecastController extends HttpServlet {
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher(
-                "index.xhtml");
-        dispatcher.forward(request, response);
+                "index.xhtml" );
+        dispatcher.forward( request, response );
     }
 }

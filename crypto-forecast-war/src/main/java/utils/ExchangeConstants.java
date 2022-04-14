@@ -1,8 +1,8 @@
 package utils;
 
 public enum ExchangeConstants {
-    EURO("EUR"),
-    DOLLAR("USD");
+    EURO( "EUR" ),
+    DOLLAR( "USD" );
 
     String s;
 

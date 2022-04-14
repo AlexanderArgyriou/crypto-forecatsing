@@ -8,11 +8,9 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.Response;
 import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
@@ -36,8 +34,8 @@ public class ExportWriter implements ExportWriterIfLocal, ExportWriterIfRemote {
         if ( path.isPresent() ) {
             try ( FileWriter fileWriter = new FileWriter( path.get().toString() );
                   DataInputStream in = new DataInputStream( new FileInputStream( path.get().toString() ) );
-                  ServletOutputStream outStream = response.getOutputStream(); ) {
-                Files.write(path.get(), json.getBytes( StandardCharsets.UTF_8));
+                  ServletOutputStream outStream = response.getOutputStream() ) {
+                Files.write( path.get(), json.getBytes( StandardCharsets.UTF_8 ) );
                 response.setContentLength( (int) path.get().toFile().length() );
                 response.setHeader( "Content-Disposition", "attachment; filename="
                         + "export.txt" );

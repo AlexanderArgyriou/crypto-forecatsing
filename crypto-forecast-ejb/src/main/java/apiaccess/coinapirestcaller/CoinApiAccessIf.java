@@ -1,14 +1,7 @@
 package apiaccess.coinapirestcaller;
 
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
+import javax.ws.rs.client.Client;
 
 public interface CoinApiAccessIf {
-    String getBTCTimeSeries(Future<Response> res);
-
-    String getETHTimeSeries(Future<Response> res);
-
-    String geUSDTTimeSeries(Future<Response> res);
-
-    String geSOLTimeSeries(Future<Response> res);
+    String getTimeSeries(String url, Client client);
 }

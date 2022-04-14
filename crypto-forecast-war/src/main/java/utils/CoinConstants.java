@@ -1,10 +1,10 @@
 package utils;
 
 public enum CoinConstants {
-    BTC("BTC"),
-    ETH("ETH"),
-    USDT("USDT"),
-    SOL("SOL");
+    BTC( "BTC" ),
+    ETH( "ETH" ),
+    USDT( "USDT" ),
+    SOL( "SOL" );
 
     String s;
 

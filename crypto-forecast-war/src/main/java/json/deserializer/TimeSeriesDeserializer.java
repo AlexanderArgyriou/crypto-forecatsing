@@ -18,26 +18,26 @@ public class TimeSeriesDeserializer extends JsonDeserializer<TimeSeries> {
     public TimeSeries deserialize(JsonParser jsonParser,
                                   DeserializationContext deserializationContext)
             throws IOException {
-        JsonNode node = jsonParser.getCodec().readTree(jsonParser);
-        ArrayNode dataNode = (ArrayNode) node.get(DeserializeKeywords.DATA.getS())
-                .get(DeserializeKeywords.DATA.getS());
+        JsonNode node = jsonParser.getCodec().readTree( jsonParser );
+        ArrayNode dataNode = (ArrayNode) node.get( DeserializeKeywords.DATA.getS() )
+                .get( DeserializeKeywords.DATA.getS() );
         Iterator<JsonNode> i = dataNode.elements();
         TimeSeries timeSeries = new TimeSeries();
-        while (i.hasNext()) {
+        while ( i.hasNext() ) {
             JsonNode n = i.next();
-            BigDecimal low = n.get((DeserializeKeywords.LOW.getS())).decimalValue();
-            BigDecimal high = n.get(DeserializeKeywords.HIGH.getS()).decimalValue();
-            BigInteger time = BigInteger.valueOf(n.get(DeserializeKeywords.TIME.getS()).longValue());
-            timeSeries.addValue(new TimeSeriesComponent(low, high, time));
+            BigDecimal low = n.get( ( DeserializeKeywords.LOW.getS() ) ).decimalValue();
+            BigDecimal high = n.get( DeserializeKeywords.HIGH.getS() ).decimalValue();
+            BigInteger time = BigInteger.valueOf( n.get( DeserializeKeywords.TIME.getS() ).longValue() );
+            timeSeries.addValue( new TimeSeriesComponent( low, high, time ) );
         }
         return timeSeries;
     }
 
     private enum DeserializeKeywords {
-        DATA("Data"),
-        LOW("low"),
-        HIGH("high"),
-        TIME("time");
+        DATA( "Data" ),
+        LOW( "low" ),
+        HIGH( "high" ),
+        TIME( "time" );
 
         String s;
 

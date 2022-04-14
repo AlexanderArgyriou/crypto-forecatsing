@@ -11,8 +11,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
 
 @Path("predict")
 public class PredictEndPoint {
@@ -33,11 +31,8 @@ public class PredictEndPoint {
     @Produces("application/json")
     public String predictBTC(@PathParam("time") String minutes,
                              @PathParam("predictions") int predictions) {
-        Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
-                .post(Entity.json(uriUtils.constructTimeSeriesJson(
-                        coinInfoService.getBTCTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIBTC(minutes).toString(), client)), predictions)));
-        return forecastService.predictBTCJson(forecast);
+        return forecastService.predictBTCJson( uriUtils.getForecastAsyncInvoker( client ),
+                Entity.json( uriUtils.constructTimeSeriesJson( coinInfoService.getBTCTimeSeriesJson( uriUtils.buildTimeSeriesGetURIBTC( minutes ).toString(), client ), predictions ) ) );
     }
 
     @Path("eth/{time}/{predictions}")
@@ -45,11 +40,8 @@ public class PredictEndPoint {
     @Produces("application/json")
     public String predictETH(@PathParam("time") String minutes,
                              @PathParam("predictions") int predictions) {
-        Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
-                .post(Entity.json(uriUtils.constructTimeSeriesJson(
-                        coinInfoService.getETHTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIETH(minutes).toString(), client)), predictions)));
-        return forecastService.predictETHJson(forecast);
+        return forecastService.predictETHJson( uriUtils.getForecastAsyncInvoker( client ),
+                Entity.json( uriUtils.constructTimeSeriesJson( coinInfoService.getETHTimeSeriesJson( uriUtils.buildTimeSeriesGetURIETH( minutes ).toString(), client ), predictions ) ) );
     }
 
     @Path("usdt/{time}/{predictions}")
@@ -57,22 +49,16 @@ public class PredictEndPoint {
     @Produces("application/json")
     public String predictUSDT(@PathParam("time") String minutes,
                               @PathParam("predictions") int predictions) {
-        Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
-                .post(Entity.json(uriUtils.constructTimeSeriesJson(
-                        coinInfoService.getUSDTTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURIUSDT(minutes).toString(), client)), predictions)));
-        return forecastService.predictUSDTJson(forecast);
+        return forecastService.predictUSDTJson( uriUtils.getForecastAsyncInvoker( client ),
+                Entity.json( uriUtils.constructTimeSeriesJson( coinInfoService.getUSDTTimeSeriesJson( uriUtils.buildTimeSeriesGetURIUSDT( minutes ).toString(), client ), predictions ) ) );
     }
 
     @Path("sol/{time}/{predictions}")
     @GET
     @Produces("application/json")
     public String predictSOL(@PathParam("time") String minutes,
-                              @PathParam("predictions") int predictions) {
-        Future<Response> forecast = uriUtils.getForecastAsyncInvoker(client)
-                .post(Entity.json(uriUtils.constructTimeSeriesJson(
-                        coinInfoService.getSOLTimeSeriesJson(
-                                uriUtils.getFutureResponse(uriUtils.buildTimeSeriesGetURISOL(minutes).toString(), client)), predictions)));
-        return forecastService.predictSOLJson(forecast);
+                             @PathParam("predictions") int predictions) {
+        return forecastService.predictSOLJson( uriUtils.getForecastAsyncInvoker( client ),
+                Entity.json( uriUtils.constructTimeSeriesJson( coinInfoService.getSOLTimeSeriesJson( uriUtils.buildTimeSeriesGetURISOL( minutes ).toString(), client ), predictions ) ) );
     }
 }

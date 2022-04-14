@@ -20,6 +20,6 @@ public class Export {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response exp(@Context HttpServletResponse response,
                         String json) {
-        return exportWriterService.exportFile(response,  json);
+        return exportWriterService.exportFile( response, json );
     }
 }

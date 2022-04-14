@@ -22,7 +22,7 @@ public class TimeSeries {
     }
 
     public void addValue(TimeSeriesComponent timeSeriesComponent) {
-        timeSeriesList.add(timeSeriesComponent);
+        timeSeriesList.add( timeSeriesComponent );
     }
 
     public int getPredictionsNum() {
@@ -30,7 +30,7 @@ public class TimeSeries {
     }
 
     public void setPredictionsNum(int predictionsNum) {
-        if (predictionsNum > 10) {
+        if ( predictionsNum > 10 ) {
             this.predictionsNum = predictionsNum;
         }
     }

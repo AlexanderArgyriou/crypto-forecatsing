@@ -5,6 +5,6 @@ import model.entities.Forecast;
 
 public class ForecastDTOToForecastMapper {
     public Forecast forecastDTOToForecast(ForecastDTO dto) {
-        return new Forecast(dto.getLow(), dto.getHigh(), dto.getMean(), dto.getReal(), dto.getDate(), dto.getCoin());
+        return new Forecast( dto.getLow(), dto.getHigh(), dto.getMean(), dto.getReal(), dto.getDate(), dto.getCoin() );
     }
 }

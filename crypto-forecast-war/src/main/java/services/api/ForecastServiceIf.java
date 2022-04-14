@@ -1,14 +1,14 @@
 package services.api;
 
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
+import javax.ws.rs.client.AsyncInvoker;
+import javax.ws.rs.client.Entity;
 
 public interface ForecastServiceIf {
-    String predictBTCJson(Future<Response> res);
+    String predictBTCJson(AsyncInvoker asyncInvoker, Entity entity);
 
-    String predictETHJson(Future<Response> res);
+    String predictETHJson(AsyncInvoker asyncInvoker, Entity entity);
 
-    String predictUSDTJson(Future<Response> res);
+    String predictUSDTJson(AsyncInvoker asyncInvoker, Entity entity);
 
-    String predictSOLJson(Future<Response> res);
+    String predictSOLJson(AsyncInvoker asyncInvoker, Entity entity);
 }

@@ -6,8 +6,8 @@ import interceptors.ProfileInterceptorClient;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
+import javax.ws.rs.client.AsyncInvoker;
+import javax.ws.rs.client.Entity;
 
 @RequestScoped
 @Interceptors(ProfileInterceptorClient.class)
@@ -16,22 +16,22 @@ public class ForecastService implements ForecastServiceIf {
     ArimaAPIForecastAccessLocalIf arimaAPIForecastAccess;
 
     @Override
-    public String predictBTCJson(Future<Response> res) {
-        return arimaAPIForecastAccess.predictBTC(res);
+    public String predictBTCJson(AsyncInvoker asyncInvoker, Entity entity) {
+        return arimaAPIForecastAccess.predict( asyncInvoker, entity );
     }
 
     @Override
-    public String predictETHJson(Future<Response> res) {
-        return arimaAPIForecastAccess.predictETH(res);
+    public String predictETHJson(AsyncInvoker asyncInvoker, Entity entity) {
+        return arimaAPIForecastAccess.predict( asyncInvoker, entity );
     }
 
     @Override
-    public String predictUSDTJson(Future<Response> res) {
-        return arimaAPIForecastAccess.predictUSDT(res);
+    public String predictUSDTJson(AsyncInvoker asyncInvoker, Entity entity) {
+        return arimaAPIForecastAccess.predict( asyncInvoker, entity );
     }
 
     @Override
-    public String predictSOLJson(Future<Response> res) {
-        return arimaAPIForecastAccess.predictSOL(res);
+    public String predictSOLJson(AsyncInvoker asyncInvoker, Entity entity) {
+        return arimaAPIForecastAccess.predict( asyncInvoker, entity );
     }
 }

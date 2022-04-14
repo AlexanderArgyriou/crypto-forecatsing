@@ -1,14 +1,13 @@
 package services.api;
 
-import javax.ws.rs.core.Response;
-import java.util.concurrent.Future;
+import javax.ws.rs.client.Client;
 
 public interface CoinInfoServiceIf {
-    String getETHTimeSeriesJson(Future<Response> res);
+    String getETHTimeSeriesJson(String url, Client client);
 
-    String getBTCTimeSeriesJson(Future<Response> res);
+    String getBTCTimeSeriesJson(String url, Client client);
 
-    String getUSDTTimeSeriesJson(Future<Response> res);
+    String getUSDTTimeSeriesJson(String url, Client client);
 
-    String getSOLTimeSeriesJson(Future<Response> res);
+    String getSOLTimeSeriesJson(String url, Client client);
 }

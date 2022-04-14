@@ -1,9 +1,9 @@
 package utils;
 
 public enum TimeSeriesURIConstants {
-    TIMESERIES_API_DOMAIN("api.timedoor.io"),
-    TIMESERIES_API_PATH_ANALYSIS("/invocation/auto-arima"),
-    API_KEY("api_key");
+    TIMESERIES_API_DOMAIN( "api.timedoor.io" ),
+    TIMESERIES_API_PATH_ANALYSIS( "/invocation/auto-arima" ),
+    API_KEY( "api_key" );
 
     String s;
 
